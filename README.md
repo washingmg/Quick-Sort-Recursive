@@ -1,0 +1,1 @@
+Este trabalho consiste em um projeto acadêmico realizado por estudantes do curso de Ciência da Computação na Universidade Federal de Alagoas (UFAL), Campus Arapiraca, com intuito de obtenção de nota na disciplina de Projeto e Análise de Algoritmos, solicitado pelo Docente Alexandre Paes. 
