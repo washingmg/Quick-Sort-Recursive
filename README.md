@@ -29,6 +29,7 @@ O QuickSort é um algoritmo de ordenação eficiente baseado em **dividir e conq
         QuickSortAnalysis.java # Programa principal que executa testes e gera CSV
         QuickSort.java # Implementação do QuickSort recursivo
         ArrayGenerator.java # Geração de arrays aleatórios
+        graph_generator # Criação dos gráficos
         saida_quicksort.csv # Arquivo gerado com resultados dos testes
         img/ # Diretório para armazenar gráficos gerados em Python
 ---
