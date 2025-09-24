@@ -53,6 +53,14 @@ public class QuickSortAnalysis {
 
                     // Escreve resultados no CSV
                     writer.printf("%d;%.4f;%d;%d\n", n, executionTimeMs, numComparisons, memoryUsed);
+
+                    // Intervalo de 0,5 segundos entre cada execução
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                        System.out.println("Execução interrompida!");
+                    }
                 }
             }
 
