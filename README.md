@@ -137,27 +137,19 @@ O código realiza a leitura de métricas de desempenho do QuickSort a partir de 
 
 ---
 
-O código realiza a leitura de métricas de desempenho do QuickSort a partir de um arquivo CSV gerado em Java, cria gráficos individuais e comparativos, e salva as imagens para análise.
-
-🔹 Importação de Bibliotecas
-
-pandas: leitura e manipulação do CSV.
-matplotlib.pyplot: criação e visualização de gráficos.
-numpy: suporte a arrays numéricos.
-os: manipulação de diretórios e caminhos de arquivos.
 
 🔹 Leitura do CSV
-    csv_path = "projetoPAA/src/saida_quicksort.csv"
-    df = pd.read_csv(csv_path, sep=";")
+      csv_path = "projetoPAA/src/saida_quicksort.csv"
+      df = pd.read_csv(csv_path, sep=";")
 
 Define o caminho do CSV gerado pelo Java.
 Lê os dados usando pandas com separador ;.
 
 🔹 Extração das Métricas
-    n = df["n"].values
-    tempos = df["tempo_ms"].values
-    comparacoes = df["comparacoes"].values
-    memoria = df["memoria_bytes"].values
+      n = df["n"].values
+      tempos = df["tempo_ms"].values
+      comparacoes = df["comparacoes"].values
+      memoria = df["memoria_bytes"].values
 
 
 Converte cada coluna do CSV em arrays NumPy:
@@ -166,28 +158,27 @@ tempos: tempo de execução em milissegundos.
 comparacoes: número de comparações realizadas.
 memoria: memória utilizada em bytes.
 
-    🔹 Criação de Diretório para Salvar Imagens
-    img_dir = "projetoPAA/src/img"
-    os.makedirs(img_dir, exist_ok=True)
+  🔹 Criação de Diretório para Salvar Imagens
+        img_dir = "projetoPAA/src/img"
+        os.makedirs(img_dir, exist_ok=True)
 
 
 Cria a pasta img dentro de src.
+exist_ok=True evita erro se a pasta já existir.
 
-    exist_ok=True evita erro se a pasta já existir.
-
-    🔹 Função para Gráficos Individuais
-    def plot_individual(x, y, title, xlabel, ylabel, filename, color):
-        plt.figure(figsize=(10,6))
-        plt.plot(x, y, marker='o', linestyle='-', color=color)
-        plt.title(title)
-        plt.xlabel(xlabel)
-        plt.ylabel(ylabel)
-        plt.xscale('log')
-        plt.yscale('log')
-        plt.grid(True, which="both", ls="--")
-        plt.savefig(os.path.join(img_dir, filename))
-        plt.show()
-        plt.close()
+  🔹 Função para Gráficos Individuais
+      def plot_individual(x, y, title, xlabel, ylabel, filename, color):
+          plt.figure(figsize=(10,6))
+          plt.plot(x, y, marker='o', linestyle='-', color=color)
+          plt.title(title)
+          plt.xlabel(xlabel)
+          plt.ylabel(ylabel)
+          plt.xscale('log')
+          plt.yscale('log')
+          plt.grid(True, which="both", ls="--")
+          plt.savefig(os.path.join(img_dir, filename))
+          plt.show()
+          plt.close()
 
 
 Cria um gráfico individual com:
@@ -200,9 +191,9 @@ Grid com linhas tracejadas.
 Salva o gráfico na pasta img e mostra na tela.
 
     🔹 Criação de Gráficos Individuais
-    plot_individual(n, tempos, "Tempo de Execução do QuickSort", "Tamanho do Array (n)", "Tempo (ms)", "grafico_tempo_log.png", "blue")
-    plot_individual(n, comparacoes, "Número de Comparações do QuickSort", "Tamanho do Array (n)", "Comparações", "grafico_comparacoes_log.png", "orange")
-    plot_individual(n, memoria, "Memória Usada pelo QuickSort", "Tamanho do Array (n)", "Memória (bytes)", "grafico_memoria_log.png", "green")
+        plot_individual(n, tempos, "Tempo de Execução do QuickSort", "Tamanho do Array (n)", "Tempo (ms)", "grafico_tempo_log.png", "blue")
+        plot_individual(n, comparacoes, "Número de Comparações do QuickSort", "Tamanho do Array (n)", "Comparações", "grafico_comparacoes_log.png", "orange")
+        plot_individual(n, memoria, "Memória Usada pelo QuickSort", "Tamanho do Array (n)", "Memória (bytes)", "grafico_memoria_log.png", "green")
 
 
 Gera três gráficos individuais, cada um representando:
@@ -217,49 +208,49 @@ Memória utilizada.
 
     Cria uma figura com 3 subplots verticais, permitindo comparar todas as métricas lado a lado.
 
-    🔹 Configuração de Cada Subplot
+  🔹 Configuração de Cada Subplot
 
     Tempo de Execução
 
-    axs[0].plot(n, tempos, marker='o', color='blue', label='Tempo (ms)')
-    axs[0].set_xscale('log')
-    axs[0].set_yscale('log')
-    axs[0].set_title('Tempo de Execução vs Tamanho do Array')
-    axs[0].set_ylabel('Tempo (ms)')
-    axs[0].grid(True, which="both", ls="--")
-    axs[0].legend()
+        axs[0].plot(n, tempos, marker='o', color='blue', label='Tempo (ms)')
+        axs[0].set_xscale('log')
+        axs[0].set_yscale('log')
+        axs[0].set_title('Tempo de Execução vs Tamanho do Array')
+        axs[0].set_ylabel('Tempo (ms)')
+        axs[0].grid(True, which="both", ls="--")
+        axs[0].legend()
 
 
     Número de Comparações
 
-    axs[1].plot(n, comparacoes, marker='o', color='orange', label='Comparações')
-    axs[1].set_xscale('log')
-    axs[1].set_yscale('log')
-    axs[1].set_title('Comparações vs Tamanho do Array')
-    axs[1].set_ylabel('Comparações')
-    axs[1].grid(True, which="both", ls="--")
-    axs[1].legend()
+        axs[1].plot(n, comparacoes, marker='o', color='orange', label='Comparações')
+        axs[1].set_xscale('log')
+        axs[1].set_yscale('log')
+        axs[1].set_title('Comparações vs Tamanho do Array')
+        axs[1].set_ylabel('Comparações')
+        axs[1].grid(True, which="both", ls="--")
+        axs[1].legend()
 
 
     Memória Utilizada
 
-    axs[2].plot(n, memoria, marker='o', color='green', label='Memória (bytes)')
-    axs[2].set_xscale('log')
-    axs[2].set_yscale('log')
-    axs[2].set_title('Memória vs Tamanho do Array')
-    axs[2].set_xlabel('Tamanho do Array (n)')
-    axs[2].set_ylabel('Memória (bytes)')
-    axs[2].grid(True, which="both", ls="--")
-    axs[2].legend()
+        axs[2].plot(n, memoria, marker='o', color='green', label='Memória (bytes)')
+        axs[2].set_xscale('log')
+        axs[2].set_yscale('log')
+        axs[2].set_title('Memória vs Tamanho do Array')
+        axs[2].set_xlabel('Tamanho do Array (n)')
+        axs[2].set_ylabel('Memória (bytes)')
+        axs[2].grid(True, which="both", ls="--")
+        axs[2].legend()
 
 
 Cada subplot possui título, labels, legenda, grid e escala log-log.
 
-    🔹 Salvamento e Exibição do Gráfico Comparativo
-    plt.tight_layout()
-    plt.savefig(os.path.join(img_dir, "grafico_comparativo.png"))
-    plt.show()
-    plt.close()
+  🔹 Salvamento e Exibição do Gráfico Comparativo
+      plt.tight_layout()
+      plt.savefig(os.path.join(img_dir, "grafico_comparativo.png"))
+      plt.show()
+      plt.close()
 
 
 Ajusta automaticamente o layout (tight_layout) para evitar sobreposição.
