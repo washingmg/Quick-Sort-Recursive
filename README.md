@@ -167,18 +167,19 @@ Cria a pasta img dentro de src.
 exist_ok=True evita erro se a pasta já existir.
 
   🔹 Função para Gráficos Individuais
-          def plot_individual(x, y, title, xlabel, ylabel, filename, color):
-              plt.figure(figsize=(10,6))
-              plt.plot(x, y, marker='o', linestyle='-', color=color)
-              plt.title(title)
-              plt.xlabel(xlabel)
-              plt.ylabel(ylabel)
-              plt.xscale('log')
-              plt.yscale('log')
-              plt.grid(True, which="both", ls="--")
-              plt.savefig(os.path.join(img_dir, filename))
-              plt.show()
-              plt.close()
+
+        def plot_individual(x, y, title, xlabel, ylabel, filename, color):
+            plt.figure(figsize=(10,6))
+            plt.plot(x, y, marker='o', linestyle='-', color=color)
+            plt.title(title)
+            plt.xlabel(xlabel)
+            plt.ylabel(ylabel)
+            plt.xscale('log')
+            plt.yscale('log')
+            plt.grid(True, which="both", ls="--")
+            plt.savefig(os.path.join(img_dir, filename))
+            plt.show()
+            plt.close()
 
 
 Cria um gráfico individual com:
