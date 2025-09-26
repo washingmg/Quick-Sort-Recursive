@@ -1,3 +1,15 @@
+
+/**
+ * Implementação do algoritmo QuickSort (Ordenação Rápida).
+ *
+ * O QuickSort é um algoritmo de ordenação baseado na estratégia "Dividir e Conquistar".
+ * - Escolhe um elemento como pivô (neste caso, o último do subarray).
+ * - Reorganiza o array de forma que todos os elementos menores ou iguais ao pivô fiquem à esquerda,
+ *   e todos os maiores fiquem à direita.
+ * - Em seguida, aplica o mesmo processo recursivamente aos subarrays à esquerda e à direita do pivô.
+ */
+
+
 public class QuickSort {
 
     // Classe interna usada para manter o contador de comparações.
